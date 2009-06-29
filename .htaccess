@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !index.cgi
+RewriteRule ^(.*)$ index.cgi/$1 [PT,L]

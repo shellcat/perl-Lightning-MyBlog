@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Lightning Blog</title>
+</head>
+
+<body>
+
+<h2><b>Lightning Blog</b></h2><br>
+
+<a href="./Admin/form">>>New Posting</a><br><br>
+
+{if $p > 0}<a href="./?p={$p - 1}"><<prev</a>&nbsp;&nbsp;{/if}
+{if ($p + 1) * $limit < $count}<a href="./?p={$p + 1}">next>>{/if}
+
+<br>
+
+{foreach from=$rows item=r}
+<div style="width: 400px; border: 1px solid #000000">
+	{$r.title} ({$r.date})
+	<hr>
+	{$r.body}
+	
+	<br><br>
+	
+	<a href="./detail?id={$r.id}">>>read more</a>&nbsp;&nbsp;
+	<a href="./Admin/form?id={$r.id}">>>modify</a>&nbsp;&nbsp;
+	<a href="./Admin/confirm?id={$r.id}">>>delete</a>
+</div>
+
+<br>
+{/foreach}
+
+{if $p > 0}<a href="./?p={$p - 1}"><<前へ</a>&nbsp;&nbsp;{/if}
+{if ($p + 1) * $limit < $count}<a href="./?p={$p + 1}">次へ>>{/if}
+
+</body>
+</html>

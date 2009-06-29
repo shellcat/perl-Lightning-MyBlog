@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Lightning Blog</title>
+</head>
+
+<body>
+
+<h2><b>Lightning Blog</b></h2><br>
+
+<b>* Login Form for Author</b><br>
+
+<form method="POST" action="./{$action}">
+	{foreach from=$q key=key item=item}
+	{if $key ne 'admin_id' && $key ne 'admin_pw'}
+	<input type="hidden" name="{$key}" value="{$item}">
+	{/if}
+	{/foreach}
+	
+	<table border=0>
+		<tr>
+			<td>ID</td>
+			<td><input type="text" name="admin_id" value="" size=16 maxlength=16></td>
+		</tr>
+		<tr>
+			<td>PW</td>
+			<td><input type="password" name="admin_pw" value="" size=16 maxlength=16></td>
+		</tr>
+	</table>
+	
+	<input type="submit" value="Log In">
+</form>
+
+
+<br>
+
+</body>
+</html>
